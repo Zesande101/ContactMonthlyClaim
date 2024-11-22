@@ -1,0 +1,84 @@
+﻿<Window x:Class="CMCS.Views.AdminAddFacultyForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:viewModels="clr-namespace:CMCS.View_Models"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Height="400" Width="350" WindowStyle="None"   
+        WindowStartupLocation="CenterScreen">
+<Window.Resources>
+    <viewModels:FacutlyViewModel x:Key="FacutlyViewModel" />
+</Window.Resources>
+
+
+<Grid>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="20"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="20"/>
+    </Grid.RowDefinitions>
+    <materialDesign:PackIcon Kind="Close"
+                             Foreground="Red"
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Right"
+                             Margin="0 0 5 0"/>
+
+    <Grid Grid.Row="1" Margin="20">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            
+            <TextBlock Text="Add Faculty" 
+                           FontSize="22"
+                           Style="{StaticResource titleText}"
+                           Foreground="#3ab19b" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,5,0,15"/>
+
+                <Separator Height="20"
+                           Visibility="Hidden"/>
+
+                <!-- Total Hours Worked -->
+            <TextBlock Text="Faculty Name:"
+                       Style="{StaticResource normalText }"
+                       FontSize="11"
+                       FontWeight="SemiBold"
+                       Foreground="Black"
+                       HorizontalAlignment="Left"
+                       Margin="0 0 0 -10"/>
+            <TextBox Text="{Binding FacultyName, Source={StaticResource FacutlyViewModel}, Mode=TwoWay}"
+                     Width="200" 
+                     Height="25" 
+                     Margin="0,5,0,15" />
+            
+                <Separator Height="10"
+                           Visibility="Hidden"/>
+
+                <TextBlock Text="Faculty Hourly Rate:"
+                           Style="{StaticResource normalText }"
+                           FontSize="11"
+                           FontWeight="SemiBold"
+                           Foreground="Black"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 0 -10"/>
+                <TextBox Text="{Binding FacultyHourlyRate, Source={StaticResource FacutlyViewModel}, Mode=TwoWay}"
+                         Width="200" 
+                         Height="25" 
+                         Margin="0,5,0,15" />   
+
+                <!-- Submit Button -->
+                <Button Command="{Binding AddFacultyCommand, Source={StaticResource FacutlyViewModel}}"
+                    Width="150" 
+                    Height="20" 
+                    Content="Add Faculty"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Background="#3ab19b"
+                    HorizontalAlignment="Center"/>
+
+        </StackPanel>
+    </Grid>
+</Grid>
+</Window>

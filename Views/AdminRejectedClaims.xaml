@@ -1,0 +1,257 @@
+﻿<Window x:Class="CMCS.Views.AdminRejectedClaims"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:viewModels="clr-namespace:CMCS.View_Models"
+        xmlns:navigation="clr-namespace:CMCS.Navigation"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Height="700" Width="1115" WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        ResizeMode="NoResize" FontSize="18" FontFamily="{DynamicResource MaterialDesignFont}" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <navigation:AdminNav x:Key="AdminNav"/>
+        <viewModels:AdminRejectedClaimViewModel x:Key="AdminRejectedClaimViewModel"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="210"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border >
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#3aa9ad" Offset="0"/>
+                    <GradientStop Color="#3aa9ad" Offset="0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="128" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid Margin="0 0 0 5 ">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock HorizontalAlignment="Center" Text="CMCS" FontFamily="Segoe UI" FontWeight="Bold" FontSize="32" Foreground="#007ACC"/>
+                        <TextBlock Text="Independent Contractor(IC)"
+                           HorizontalAlignment="Center"
+                           Foreground="#007ACC"
+                           FontWeight="Bold"
+                           FontSize="14"/>
+                    </StackPanel>
+                </Grid>
+
+
+                <StackPanel Grid.Row="1">
+                    <Separator Height="5"
+                               Visibility="Hidden"/>
+                    <Border BorderBrush="Black"
+                            Width="200"  
+                            Height="50">
+                        <Button Command="{Binding NavigateToAdminDashBoardCommand, Source={StaticResource AdminNav}}"
+                                Background="#3aa9ad"
+                                Content="Dashboard"
+                                FontWeight="Medium"
+                                Foreground="Black">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="4" Color="Black" Opacity="0.5"/>
+                            </Button.Effect>
+                        </Button>
+                    </Border>
+
+                    <Separator Height="10"
+                               Visibility="Hidden"/>
+                    <Border BorderBrush="Black"
+                            Width="200"  
+                            Height="50">
+                        <Button Command="{Binding NavigateToPendingClaimsCommand, Source={StaticResource AdminNav}}"
+                                Background="#3aa9ad"
+                                Content="Pending Claims"
+                                FontWeight="Medium"
+                                Foreground="Black">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="4" Color="Black" Opacity="0.5"/>
+                            </Button.Effect>
+                        </Button>
+                    </Border>
+
+
+                    <Separator Height="10"
+                               Visibility="Hidden"/>
+                    <Border BorderBrush="Black"
+                            Width="200"  
+                            Height="50">
+                        <Button Command="{Binding NavigateToAdminApprovedClaimsCommand, Source={StaticResource AdminNav}}" 
+                                Background="#3aa9ad"
+                                Content="Approved Claims"
+                                FontWeight="Medium"
+                                Foreground="Black">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="4" Color="Black" Opacity="0.5"/>
+                            </Button.Effect>
+                        </Button>
+                    </Border>
+
+                    <Separator Height="10"
+                               Visibility="Hidden"/>
+                    <Border BorderBrush="Black"
+                            Width="200"  
+                            Height="50">
+                        <Button Command="{Binding NavigateToAdminRejectedClaimsCommand, Source={StaticResource AdminNav}}"
+                                Background="DarkGreen"
+                                Content="Rejected Claims"
+                                FontWeight="Medium"
+                                Foreground="White">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="4" Color="Black" Opacity="0.5"/>
+                            </Button.Effect>
+                        </Button>
+                    </Border>
+
+                    <Separator Height="10" 
+                               Visibility="Hidden"/>
+                    <Border BorderBrush="Black"
+                            Width="200"  
+                            Height="50">
+                        <Button Command="{Binding NavigateToFacultyCommand, Source={StaticResource AdminNav}}"
+                                Background="#3aa9ad"
+                                Content="Faculty Management"
+                                FontWeight="Medium"
+                                Foreground="Black">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="4" Color="Black" Opacity="0.5"/>
+                            </Button.Effect>
+                        </Button>
+                    </Border>
+
+                    <Separator Height="10"
+                               Visibility="Hidden"/>
+                    <Border BorderBrush="Black"
+                            Width="200"  
+                            Height="50">
+                        <Button  Command="{Binding NavigateToJobRoleCommand, Source={StaticResource AdminNav}}" 
+                                 Background="#3aa9ad"
+                                 Content="Job Role Management"
+                                 FontWeight="Medium"
+                                 Foreground="Black">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="4" Color="Black" Opacity="0.5"/>
+                            </Button.Effect>
+                        </Button>
+                    </Border>
+
+                   <Separator Height="10" Visibility="Hidden"/>
+                    <Border BorderBrush="Black"
+         Width="200"  
+         Height="50">
+                        <Button Command="{Binding NavigateUserManageCommand, Source={StaticResource AdminNav}}" 
+             Background="#3aa9ad"
+             Content="User Management"
+             FontWeight="Medium"
+             Foreground="Black">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="4" Color="Black" Opacity="0.5"/>
+                            </Button.Effect>
+                        </Button>
+                    </Border>
+
+
+                </StackPanel>
+                <Border BorderBrush="Black"
+                        Width="120"  
+                        Height="25"
+                        VerticalAlignment="Bottom"
+                        Margin="0 0 0 10"
+                        Grid.Row="2">
+                    <Button Background="#3aa9ad"
+                            Content="Log Out"
+                            FontSize="15"
+                            FontWeight="Regular"
+                            Foreground="red">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="5" ShadowDepth="4" Color="Black" Opacity="0.5"/>
+                        </Button.Effect>
+                    </Button>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Column="1"  >
+            <Grid.RowDefinitions >
+                <RowDefinition Height="110" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="37" />
+            </Grid.RowDefinitions>
+
+            <Border >
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#3aa9ad" Offset="0"/>
+                        <GradientStop Color="#3aa9ad" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Label Content="Rejected Claims"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       FontSize="20"
+                       Foreground="#fff"/>
+               </Border>
+
+            <Border Grid.Row="1" Grid.RowSpan="3">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#ffff" Offset="0"/>
+                        <GradientStop Color="#ffff" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Grid Width="880" Height="500
+" >
+                    <Grid Width="880" Height="500" >
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                            <DataGrid ItemsSource="{Binding Claims, Source={StaticResource AdminRejectedClaimViewModel}}" 
+                                      AutoGenerateColumns="False" 
+                                      CanUserAddRows="False" 
+                                      GridLinesVisibility="Horizontal" 
+                                      HeadersVisibility="Column" 
+                                      ColumnHeaderHeight="30" 
+                                      FontSize="16" 
+                                      BorderThickness="0">
+                                <DataGrid.ColumnHeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="Padding" Value="5"/>
+                                        <Setter Property="Background" Value="#3aa9ad"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Style>
+                                </DataGrid.ColumnHeaderStyle>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Claim ID" Binding="{Binding claimID}" />
+                                    <DataGridTextColumn Header="First Name" Binding="{Binding User.firstName}" />
+                                    <DataGridTextColumn Header="Last Name" Binding="{Binding User.lastName}" />
+                                    <DataGridTextColumn Header="Job Title" Binding="{Binding User.JobTitle.jobTitleName}" />
+                                    <DataGridTextColumn Header="Hours Worked" Binding="{Binding totalHoursWorked}" />
+                                    <DataGridTextColumn Header="Amount" Binding="{Binding totalAmount}" />
+                                    <DataGridTextColumn Header="Faculty Name" Binding="{Binding Faculty.facultyName}" />
+                                    <DataGridTextColumn Header="File Name" Binding="{Binding SupportDocument.fileName}" />
+                                    <DataGridTextColumn Header="Admin ID" Binding="{Binding adminID}" />
+                                    <DataGridTextColumn Header="Status" Binding="{Binding status}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

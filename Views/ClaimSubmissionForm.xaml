@@ -1,0 +1,121 @@
+﻿<Window x:Class="CMCS.Views.ClaimSubmissionForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:CMCS.View_Models"
+        mc:Ignorable="d"
+        Height="500" Width="300" WindowStyle="None"  
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <viewModels:FacutlyViewModel x:Key="FacutlyViewModel" />
+        <viewModels:ClaimSubmitViewModel x:Key="ClaimSubmitViewModel"/>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <materialDesign:PackIcon Kind="Close"
+                                 Foreground="Red"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Right"
+                                 Margin="0 0 5 0"
+                                 />
+
+
+
+        <Grid Grid.Row="1" Margin="20">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <TextBlock Text="Submit Claim" 
+                           FontSize="22"
+                           Style="{StaticResource titleText}"
+                           Foreground="#3ab19b" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,5,0,15"/>
+
+                <!-- Total Hours Worked -->
+                <TextBlock Text="Insert Total Hours Worked:"
+                           Style="{StaticResource normalText }"
+                           FontSize="10"
+                           FontWeight="SemiBold"
+                           Foreground="Black"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 0 -10"/>
+                <TextBox Text="{Binding TotalHoursWorkedText, Source={StaticResource ClaimSubmitViewModel}, Mode=TwoWay}"
+                         Width="200" 
+                         Height="25" 
+                         Margin="0,5,0,15" />
+
+                <!-- Choose Faculty -->
+
+         
+                <ComboBox Width="200" 
+                          Height="25"
+                          IsEditable="True"
+                          FontSize="11"
+                          Text="Select Faculty"
+                          FontWeight="DemiBold"
+                          HorizontalContentAlignment="Center"
+                          Margin="0,5,0,15"
+                          DisplayMemberPath="facultyName" 
+                          SelectedItem="{Binding SelectedFaculty,Source={StaticResource ClaimSubmitViewModel}, Mode=TwoWay}" 
+                          ItemsSource="{Binding FacultyList, Source={StaticResource FacutlyViewModel}}"/>
+                
+                <TextBlock Text="Additional Notes:"
+                           Style="{StaticResource normalText}"
+                           Foreground="Black"
+                           FontSize="10"
+                           FontWeight="SemiBold"
+                           Margin="0 0 0 -10"
+                           HorizontalAlignment="Left"/>
+
+                <TextBox Text="{Binding AdditionalNotes, Source={StaticResource ClaimSubmitViewModel}}"
+                         Width="200"
+                         Height="50"
+                         Margin="0,0,0,5"/>
+
+                <!-- Supporting Documents -->
+                <TextBlock Text="Upload Supporting Documents:" 
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       FontWeight="SemiBold"
+                       Style="{StaticResource normalText}"
+                       Foreground="Black"
+                           Margin="0 5 0 -10"
+                      />
+                <Button Width="200" 
+                       Height="40" 
+                       Content="Browse..." 
+                       Command="{Binding UploadDocumentCommand, Source={StaticResource ClaimSubmitViewModel}}" 
+                       HorizontalAlignment="Center" 
+                       Margin="0,0,0,4" />
+
+                <!-- Displaying the selected document path -->
+                <TextBlock Text="{Binding DocumentPath, Source={StaticResource ClaimSubmitViewModel}}" 
+                       FontSize="8" 
+                       Foreground="Gray" 
+                       TextWrapping="Wrap"
+                       HorizontalAlignment="Center"
+                       Margin="0,5,0,15"/>
+
+                <!-- Submit Button -->
+                <Button Width="150" 
+                        Height="20" 
+                        Content="Submit"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Background="#3ab19b"
+                        Command="{Binding SubmitClaimCommand, Source={StaticResource ClaimSubmitViewModel}}" 
+                        HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
