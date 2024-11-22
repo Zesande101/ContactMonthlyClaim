@@ -81,6 +81,7 @@ namespace CMCS.Data
                         command.Parameters.AddWithValue("@UserPassword", user.userPassword);
                         command.Parameters.AddWithValue("@JobTitleID", user.jobTitleID);
                         command.Parameters.AddWithValue("@UserID", user.userID);
+                      
 
                         command.ExecuteNonQuery();
                     }

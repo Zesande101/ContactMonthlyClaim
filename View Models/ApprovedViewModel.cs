@@ -58,7 +58,7 @@ namespace CMCS.View_Models
             catch (Exception ex)
             {
                 // Log or handle exceptions
-                Console.WriteLine($"Error loading claims: {ex.Message}");
+                Console.WriteLine($"Error loading all claims: {ex.Message}");
             }
         }
     }

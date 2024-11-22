@@ -35,7 +35,7 @@ namespace CMCS.View_Models
 
                 if (adminUser == null)
                 {
-                    MessageBox.Show("User not found!");
+                    MessageBox.Show("User not found in records!");
                     return;
                 }
                 // Fetch all claims from the repository
@@ -50,7 +50,7 @@ namespace CMCS.View_Models
             catch (Exception ex)
             {
                 // Log or handle exceptions
-                Console.WriteLine($"Error loading claims: {ex.Message}");
+                Console.WriteLine($"Error all loading claims: {ex.Message}");
             }
         }
     }

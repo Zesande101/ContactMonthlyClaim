@@ -24,9 +24,9 @@ namespace CMCS.View_Models
         {
              Claims = new ObservableCollection<Claim>();
             _claimRepository = new ClaimRepository();
-            LoadRejectedClaims();
+            LoadAdminRejectedClaim();
         }
-        private void LoadRejectedClaims()
+        private void LoadAdminRejectedClaim()
         {
             try
             {
@@ -46,7 +46,7 @@ namespace CMCS.View_Models
             catch (Exception ex)
             {
                 // Log or handle exceptions
-                Console.WriteLine($"Error loading claims: {ex.Message}");
+                Console.WriteLine($"Error loading  claims: {ex.Message}");
             }
         }
 
